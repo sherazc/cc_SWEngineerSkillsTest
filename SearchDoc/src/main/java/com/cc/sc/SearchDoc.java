@@ -11,10 +11,11 @@ public class SearchDoc {
   private static final List<String> DECLARATION_WORDS = Arrays.asList(Data.DECLARATION.toLowerCase().split("\\W+"));
 
   public static void main(String[] args) {
-    // String searchWord = "of";
+    // String searchWord = "our";
     String searchWord = args[0].toLowerCase();
     if (IGNORE_SEARCH_WORDS.contains(searchWord)) {
       System.out.println(searchWord + " can be one of " + IGNORE_SEARCH_WORDS);
+      return;
     }
 
     final int countConstitution = countWords(CONSTITUTION_WORDS, searchWord);

@@ -1,0 +1,39 @@
+const sampleOrder = {
+  "totalOrderValue": "80.00",
+  "totalDiscount": "0.0",
+  "totalTax": "4.00",
+  "movFee": "15.00",
+  "deliveryFee": "10.00",
+  "netInvoice": "109.00",
+  "outletId": "001234567",
+  "item": [
+    {
+      "UPC_Code": "0 49000 01278 1",
+      "desc": " Coca-Cola Soda, 12 Fl. Oz., 24 Count ",
+      "qty": "50",
+      "basePrice": "2.00",
+      "itemPrice": "2.00",
+      "adjustments": [
+        {
+          "adjustment": "",
+          "amount": "0.00",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "UPC_Code": "0 49000 06497 1",
+      "desc": " Coca-Cola Zero, 24 ct, 7.5 FL OZ Mini-Can ",
+      "qty": "30",
+      "basePrice": "2.00",
+      "itemPrice": "0.00", // >>> (Quantity * Base price) – sum of (Adjustments)
+      "adjustments": [
+        {
+          "adjustment": "Buy one get one",
+          "amount": "-5.00",
+          "desc": ""
+        }
+      ]
+    }
+  ]
+};
