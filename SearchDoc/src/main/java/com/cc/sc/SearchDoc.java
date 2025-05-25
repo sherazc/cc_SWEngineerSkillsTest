@@ -5,14 +5,17 @@ import java.util.List;
 
 public class SearchDoc {
 
-  private static final List<String> IGNORE_SEARCH_WORDS = Arrays.asList("of", "the", "to", "and”, “for");
+  private static final List<String> IGNORE_SEARCH_WORDS = Arrays.asList("of", "the", "to", "and", "for");
   private static final List<String> CONSTITUTION_WORDS = Arrays.asList(Data.CONSTITUTION.toLowerCase().split("\\W+"));
   private static final List<String> MAGNA_CARTA_WORDS = Arrays.asList(Data.MAGNA_CARTA.toLowerCase().split("\\W+"));
   private static final List<String> DECLARATION_WORDS = Arrays.asList(Data.DECLARATION.toLowerCase().split("\\W+"));
 
   public static void main(String[] args) {
-    // String searchWord = args[0].toLowerCase();
-    String searchWord = "our";
+    // String searchWord = "of";
+    String searchWord = args[0].toLowerCase();
+    if (IGNORE_SEARCH_WORDS.contains(searchWord)) {
+      System.out.println(searchWord + " can be one of " + IGNORE_SEARCH_WORDS);
+    }
 
     final int countConstitution = countWords(CONSTITUTION_WORDS, searchWord);
     final int countMagnaCarta = countWords(MAGNA_CARTA_WORDS, searchWord);
@@ -20,7 +23,7 @@ public class SearchDoc {
     int maxCount = Math.max(countDeclaration, Math.max(countConstitution, countMagnaCarta));
 
     if (maxCount == 0) {
-      System.out.println("The word \"" + searchWord + "\" does not appear in any document.");
+      System.out.println("Word not found.");
       return;
     }
 
